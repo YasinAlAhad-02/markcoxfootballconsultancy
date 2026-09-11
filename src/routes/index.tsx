@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { descriptor, links, photos } from "@/lib/media";
+import { abs, descriptor, links, photos, share } from "@/lib/media";
 import { Reveal } from "@/components/site/Reveal";
 import { Counter } from "@/components/site/Counter";
 import { JourneySlider } from "@/components/site/JourneySlider";
@@ -26,10 +26,12 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "MARK COX INTERNATIONAL FOOTBALL CONSULTANCY" },
       { property: "og:description", content: descriptor },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: abs("/") },
+      { property: "og:image", content: share.home },
+      { name: "twitter:image", content: share.home },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: abs("/") }],
   }),
   component: Home,
 });

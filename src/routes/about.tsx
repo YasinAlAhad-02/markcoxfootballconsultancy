@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { descriptor, photos } from "@/lib/media";
+import { abs, descriptor, photos, share } from "@/lib/media";
 import { Reveal } from "@/components/site/Reveal";
 import { PhotoBreak, Section, SectionHead, WorkWithMarkCTA } from "@/components/site/Bits";
 
@@ -15,10 +15,12 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Mark Cox — International Football Consultancy" },
       { property: "og:description", content: descriptor },
       { property: "og:type", content: "profile" },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: abs("/about") },
+      { property: "og:image", content: share.about },
+      { name: "twitter:image", content: share.about },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: abs("/about") }],
   }),
   component: About,
 });

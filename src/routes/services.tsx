@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import { descriptor, logos } from "@/lib/media";
+import { abs, descriptor, logos, share } from "@/lib/media";
 import { Reveal } from "@/components/site/Reveal";
 import { Section, SectionHead, WorkWithMarkCTA } from "@/components/site/Bits";
 import { cn } from "@/lib/utils";
@@ -18,10 +18,12 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: "Services — Mark Cox International Football Consultancy" },
       { property: "og:description", content: descriptor },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: abs("/services") },
+      { property: "og:image", content: share.services },
+      { name: "twitter:image", content: share.services },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: abs("/services") }],
   }),
   component: Services,
 });
