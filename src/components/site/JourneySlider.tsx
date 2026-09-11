@@ -37,7 +37,12 @@ export function JourneySlider() {
   const next = useCallback(() => embla?.scrollNext(), [embla]);
 
   return (
-    <div>
+    <div
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+    >
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {journeySlides.map((s) => (
