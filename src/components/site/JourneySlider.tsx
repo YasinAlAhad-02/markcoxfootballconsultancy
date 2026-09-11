@@ -17,6 +17,7 @@ export const journeySlides = [
 export function JourneySlider() {
   const [emblaRef, embla] = useEmblaCarousel({ loop: true, align: "start" });
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (!embla) return;
@@ -24,6 +25,13 @@ export function JourneySlider() {
     embla.on("select", onSelect);
     onSelect();
   }, [embla]);
+
+  useEffect(() => {
+    if (!embla || paused) return;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => embla.scrollNext(), 5000);
+    return () => window.clearInterval(id);
+  }, [embla, paused]);
 
   const prev = useCallback(() => embla?.scrollPrev(), [embla]);
   const next = useCallback(() => embla?.scrollNext(), [embla]);
