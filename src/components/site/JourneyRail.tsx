@@ -12,6 +12,7 @@ const stops = [
 
 export function JourneyRail() {
   const [active, setActive] = useState(0);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -22,6 +23,7 @@ export function JourneyRail() {
         if (el && el.getBoundingClientRect().top <= mid) current = i;
       });
       setActive(current);
+      setVisible(window.scrollY > window.innerHeight * 0.75);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -31,7 +33,10 @@ export function JourneyRail() {
   return (
     <nav
       aria-label="Page sections"
-      className="pointer-events-none fixed top-1/2 left-4 z-30 hidden -translate-y-1/2 xl:block"
+      className={cn(
+        "pointer-events-none fixed top-1/2 left-4 z-30 hidden -translate-y-1/2 transition-opacity duration-500 xl:block",
+        visible ? "opacity-100" : "opacity-0",
+      )
     >
       <ul className="pointer-events-auto flex flex-col gap-4">
         {stops.map((s, i) => (
