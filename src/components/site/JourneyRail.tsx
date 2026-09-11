@@ -36,7 +36,7 @@ export function JourneyRail() {
       className={cn(
         "pointer-events-none fixed top-1/2 left-4 z-30 hidden -translate-y-1/2 transition-opacity duration-500 xl:block",
         visible ? "opacity-100" : "opacity-0",
-      )
+      )}
     >
       <ul className="pointer-events-auto flex flex-col gap-4">
         {stops.map((s, i) => (
