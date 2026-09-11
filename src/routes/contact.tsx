@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Mail, MessageCircle } from "lucide-react";
-import { descriptor, links } from "@/lib/media";
+import { abs, descriptor, links, share } from "@/lib/media";
 import { Reveal } from "@/components/site/Reveal";
 import { Section, SectionHead } from "@/components/site/Bits";
 
@@ -16,10 +16,12 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Work With Mark — Mark Cox International Football Consultancy" },
       { property: "og:description", content: descriptor },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: abs("/contact") },
+      { property: "og:image", content: share.contact },
+      { name: "twitter:image", content: share.contact },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: abs("/contact") }],
   }),
   component: Contact,
 });

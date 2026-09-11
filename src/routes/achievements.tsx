@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { descriptor, links, photos } from "@/lib/media";
+import { abs, descriptor, links, photos, share } from "@/lib/media";
 import { Reveal } from "@/components/site/Reveal";
 import {
   PhotoBreak,
@@ -21,10 +21,12 @@ export const Route = createFileRoute("/achievements")({
       { property: "og:title", content: "Achievements & Vision — Mark Cox" },
       { property: "og:description", content: descriptor },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/achievements" },
+      { property: "og:url", content: abs("/achievements") },
+      { property: "og:image", content: share.achievements },
+      { name: "twitter:image", content: share.achievements },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/achievements" }],
+    links: [{ rel: "canonical", href: abs("/achievements") }],
   }),
   component: Achievements,
 });

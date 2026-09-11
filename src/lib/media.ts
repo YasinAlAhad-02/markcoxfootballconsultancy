@@ -55,11 +55,24 @@ export const links = {
   email: "mailto:MCOX.IFC@PROTON.ME",
   emailDisplay: "MCOX.IFC@PROTON.ME",
   video1: "https://youtube.com/shorts/DcVwmnyrYP4?si=iKwCtgWSte3AuyLw",
-  video2: "https://youtube.com/shorts/eKcjFUPxN44?si=clCumWnLWE72hj-O",
+  video2: "https://youtube.com/shorts/eKcjFUPxN44?si=clCumWnLE72hj-O",
   aslFacebook: "https://www.facebook.com/aslelitesports/",
   aslInstagram: "https://www.instagram.com/aslelitesports/",
   aslLinkedin: "https://www.linkedin.com/company/asl-elite-sports",
   aslEmail: "mailto:aslelitesports@gmail.com",
+};
+
+export const SITE_URL = "https://mcifc-footballexpert.lovable.app";
+
+export const abs = (path: string) => `${SITE_URL}${path}`;
+
+export const share = {
+  home: abs(photos.camp.src),
+  about: abs(photos.coaching.src),
+  services: abs(photos.balls.src),
+  achievements: abs(photos.trophy.src),
+  journey: abs(photos.champions.src),
+  contact: abs(photos.ceremony.src),
 };
 
 export const descriptor =

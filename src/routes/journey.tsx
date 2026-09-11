@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { descriptor, photos } from "@/lib/media";
+import { abs, descriptor, photos, share } from "@/lib/media";
 import { JourneySlider } from "@/components/site/JourneySlider";
 import { PhotoBreak, Section, SectionHead, WorkWithMarkCTA } from "@/components/site/Bits";
 
@@ -15,10 +15,12 @@ export const Route = createFileRoute("/journey")({
       { property: "og:title", content: "The Journey — Mark Cox" },
       { property: "og:description", content: descriptor },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: "/journey" },
+      { property: "og:url", content: abs("/journey") },
+      { property: "og:image", content: share.journey },
+      { name: "twitter:image", content: share.journey },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/journey" }],
+    links: [{ rel: "canonical", href: abs("/journey") }],
   }),
   component: Journey,
 });
