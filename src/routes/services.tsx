@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services")({
   component: Services,
 });
 
-const groups = [
+const groups: { letter: string; title: string; items: [string, string][] }[] = [
   {
     letter: "A",
     title: "Technical Leadership",

@@ -190,7 +190,7 @@ function Home() {
               as="li"
               key={w.n}
               delay={(i % 2) * 90}
-              className={i % 2 === 1 ? "md:mt-20" : undefined}
+              className={i % 2 === 1 ? "md:mt-20" : ""}
             >
               <figure className="img-zoom">
                 <img
