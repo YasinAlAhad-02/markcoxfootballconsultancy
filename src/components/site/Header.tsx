@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Mark" },
+  { to: "/experience", label: "Experience" },
   { to: "/services", label: "Services" },
   { to: "/achievements", label: "Achievements & Vision" },
   { to: "/journey", label: "The Journey" },
@@ -43,7 +44,7 @@ export function Header() {
           <span className="sr-only">Mark Cox International Football Consultancy</span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
           {nav.map((item) => (
             <Link
               key={item.to}
